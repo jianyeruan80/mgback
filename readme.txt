@@ -33,3 +33,17 @@ chmod 755 /etc/sudoers.d
 chmod 755 /etc/sudoers
 sudo vi /etc/sudoers
 #Default requiretty 
+
+*/2 * * * * echo "i am crontab" >>/tmp/test.log 2>&
+
+/sbin/service crond start           //启动服务
+/sbin/service crond stop            //关闭服务
+/sbin/service crond restart        //重启服务
+/sbin/service crond reload         //重新载入配置
+
+网上搜了一下，解决办法是编辑 /etc/sudoers 文件，将Default requiretty注释掉。
+sudo vi /etc/sudoers
+#Default requiretty #注释掉 Default requiretty 一行
+
+sudo sed -i 's/Defaults requiretty/#Defaults requiretty/g' /etc/sudoers
+sudo cat /etc/sudoers | grep requiretty
