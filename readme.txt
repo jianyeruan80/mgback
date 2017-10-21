@@ -3,7 +3,9 @@
 
 backup Database Name Test3999
 Test3999.tar.gz originDbName  currentDbname
-
+注意注意每次都不记得：   ./r2 mongo Test3999 Test3999 Txxxx  
+1，第一个参数不用带.tar.gz  
+2,原数据库跟当前数据库存一样时，才会删除currentDbname数据库。
 
 every Date backup
 /backup2.sh mongo Test3999
